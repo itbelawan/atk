@@ -1,0 +1,21 @@
+<h4 class="text-capitalize">Form Edit Jenis Barang</h4>
+
+<div class="row">
+    <div class="col-lg-6">
+        <form action="/master/jenis-barang/update/<%= jenis_barang.id %>" method="post">
+            <div class="mb-3">
+                <label class="form-label">Kode Barang</label>
+                <input type="text" class="form-control" name="kode" value="<%= jenis_barang.kode %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nama Barang</label>
+                <input type="text" class="form-control" name="nama_barang" value="<%= jenis_barang.nama_barang %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" name="description" value="<%= jenis_barang.description %>">
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+        </form>
+    </div>
+</div>

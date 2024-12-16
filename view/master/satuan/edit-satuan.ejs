@@ -1,0 +1,21 @@
+<h4 class="text-capitalize">Form Edit Jenis Barang</h4>
+
+<div class="row">
+    <div class="col-lg-6">
+        <form action="/master/satuan/update/<%= satuan.id %>" method="post">
+            <div class="mb-3">
+                <label class="form-label">Kode satuan</label>
+                <input type="text" class="form-control" name="kode" value="<%= satuan.kode %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nama satuan</label>
+                <input type="text" class="form-control" name="nama_satuan" value="<%= satuan.nama_satuan %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" name="description" value="<%= satuan.description %>">
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+        </form>
+    </div>
+</div>

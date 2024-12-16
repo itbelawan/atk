@@ -1,0 +1,100 @@
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Form Create User</h3>
+    </div>
+    <form action="/createUser" method="POST">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-capitalize">Username</label>
+                                    <input type="text" class="form-control" name="username" required />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-capitalize">Password</label>
+                                    <input type="password" class="form-control" name="password" required />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-capitalize">Role</label>
+                                    <select name="roles" class="form-select form-control" required>
+                                        <option value="" selected>pilih Roles</option>
+                                        <option value="0">admin</option>
+                                        <option value="1">User</option>
+                                        <option value="2">Viewer</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-4">Simpan</button>
+
+                    </div>
+
+                </div>
+            </div>
+    </form>
+    <hr>
+    <div class="col-12 pt-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <table id="myTable" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Username </th>
+                            <th>role</th>
+                            <th>status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let i=0; i < users.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= i + 1 %>
+                                </td>
+                                <td>
+                                    <%= users[i].username %>
+                                </td>
+                                <td>
+                                    <% if (users[i].roles == '0') { %>
+                                        admin
+                                    <% } else if(users[i].roles == '1') { %>
+                                        user
+                                    <% }else{%>
+                                        viewer
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <% if (users[i].is_active == '1') { %>
+                                        <button type="button" class="btn btn-primary">Active</button>
+                                    <% } else { %>
+                                        <button type="button" class="btn btn-danger">Deleted</button>
+                                    <% } %>
+                                </td>
+                                
+                                <td>
+                                    <form action="/users/delete-user/<%= users[i].id %>" method="post">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('apakah anda yakin ingin hapus <%= users[i].username %>?')">
+                                            <i class="fa fa-fw fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

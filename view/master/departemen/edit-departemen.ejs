@@ -1,0 +1,21 @@
+<h4 class="text-capitalize">Form Edit </h4>
+
+<div class="row">
+    <div class="col-lg-6">
+        <form action="/master/departemen/update/<%= departemen.id %>" method="post">
+            <div class="mb-3">
+                <label class="form-label">Kode Barang</label>
+                <input type="text" class="form-control" name="kode" value="<%= departemen.kode %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nama Barang</label>
+                <input type="text" class="form-control" name="nama_departemen" value="<%= departemen.nama_departemen %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" name="description" value="<%= departemen.description %>">
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+        </form>
+    </div>
+</div>
